@@ -12,7 +12,6 @@
 ## Active Configurations ##
 
 # Disable filebucket by default for all File resources:
-#https://docs.puppet.com/pe/2015.3/release_notes.html#filebucket-resource-no-longer-created-by-default
 File { backup => false }
 
 # DEFAULT NODE
@@ -25,22 +24,20 @@ File { backup => false }
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
 
-
 node 'perlvan3.mylabserver' {
-   notify { 'THis matches a node name !!': }
+  notify { 'THis matches a node name !!': }
 }
 
-#node /^perlvan2/ {
-#  notify { "This is a node definition using regex!!!": }
-#}
+node /^perlvan2/ {
+  notify { "This is a node definition using regex!!!": }
+}
 
-#node 'perlvan2.mylabserver' {
-#   notify { 'THis matches a node name !!': }
-#}
+node 'perlvan2.mylabserver' {
+   notify { 'THis matches a node name !!': }
+}
 
 node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-  notify { This is default !!': }
 }
